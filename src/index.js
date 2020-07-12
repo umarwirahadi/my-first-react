@@ -3,10 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+// fungsi rootReducer adalah tempat reducer paling tinggi sehingga butuh untuk disimpan dalam folder yang berbeda untuk mempermudah yaitu dalam folder redux dan fie globalReducer
+import rootReducer from './redux/globalReducer';
+import { createStore } from 'redux';
+
+
+
+
+
+
+// const createstore = redux.createStore;
+const store = createStore(rootReducer)
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={ store }>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
